@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Section from '$lib/Section.svelte';
+	import Section from '$lib/Section.svelte'
 
-	import loadMarkdown from '$util/markdown';
+	import loadMarkdown from '$util/markdown'
 </script>
 
 <!-- All of the content here should be imported from Markdown/MDsveX files. -->

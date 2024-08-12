@@ -1,11 +1,11 @@
-import { mdsvex } from 'mdsvex';
-import adapter from '@sveltejs/adapter-auto';
-import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import { mdsvex } from 'mdsvex'
+import adapter from '@sveltejs/adapter-auto'
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
-	extensions: ['.md']
-};
+	extensions: ['.md'],
+}
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -20,11 +20,11 @@ const config = {
 		adapter: adapter(),
 		alias: {
 			$content: 'src/content',
-			$util: 'src/util'
-		}
+			$util: 'src/util',
+		},
 	},
 
-	extensions: ['.svelte', '.md']
-};
+	extensions: ['.svelte', '.md'],
+}
 
-export default config;
+export default config

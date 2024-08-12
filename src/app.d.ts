@@ -3,14 +3,14 @@
 declare global {
 	namespace App {
 		interface Post {
-			title: string;
-			slug: string;
-			description: string;
-			date: string;
-			tags: string[];
-			published: boolean;
+			title: string
+			slug: string
+			description: string
+			date: string
+			tags: string[]
+			published: boolean
 		}
 	}
 }
 
-export {};
+export {}

@@ -1,7 +1,7 @@
 <script lang="ts">
-	export let title: string;
-	export let id: string = title.toLowerCase().replace(' ', '-');
-	export let level: number = 2;
+	export let title: string
+	export let id: string = title.toLowerCase().replace(' ', '-')
+	export let level: number = 2
 </script>
 
 <section {id} class="section">

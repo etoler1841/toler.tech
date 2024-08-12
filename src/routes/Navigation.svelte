@@ -1,5 +1,5 @@
 <script lang="ts">
-	import NavItem from '$lib/NavItem.svelte';
+	import NavItem from '$lib/NavItem.svelte'
 </script>
 
 <ul class="navbar" role="navigation">
