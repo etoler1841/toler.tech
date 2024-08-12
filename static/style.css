@@ -92,6 +92,21 @@ small,
 	font-size: calc(1rem * pow(var(--font-scale), -1));
 }
 
+a {
+	color: var(--color--accent);
+
+	&,
+	&:active,
+	&:visited {
+		text-decoration: none;
+	}
+
+	&:hover,
+	&:focus-visible {
+		text-decoration: underline;
+	}
+}
+
 input,
 select,
 textarea {
