@@ -1,0 +1,29 @@
+:root {
+	--color--primary: #25042d;
+	--color--accent: #3af180;
+	--color--light: #b4ddce;
+	--color--mid: #ab52b4;
+	--color--dark: #0c4d0c;
+	--color--black: #030303;
+	--color--white: #ffffff;
+
+	--font-family--content: 'Zain', sans-serif;
+	--font-family--title: 'Wittgenstein', var(--font-family--content);
+	--font-family--subtitle: 'Monaspace Krypton Var', var(--font-family--title);
+	--font-family--code: 'Monaspace Krypton Var', monospace;
+
+	font-size: 18px;
+	line-height: 1.25;
+	font-family: var(--font-family--content);
+	color: var(--color--white);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: var(--color--primary);
+	margin: 0;
+	padding: 0;
+}
