@@ -1,15 +1,13 @@
 <script lang="ts">
-	import Section from '$lib/Section.svelte'
-
 	import loadMarkdown from '$util/markdown'
+	import Section from '$lib/Section.svelte'
 </script>
 
-<!-- All of the content here should be imported from Markdown/MDsveX files. -->
 {#each ['about', 'uses', 'blog', 'contact'] as slug}
-	<section>
+	<Section>
 		{#await loadMarkdown(slug) then data}
-			<h2>{data?.meta?.title}</h2>
+			<h2 id={slug}>{data?.meta?.title}</h2>
 			<svelte:component this={data?.content} />
 		{/await}
-	</section>
+	</Section>
 {/each}

@@ -8,14 +8,16 @@
 	--color--white: #ffffff;
 
 	--font-family--content: 'Zain', sans-serif;
-	--font-family--title: 'Wittgenstein', var(--font-family--content);
-	--font-family--subtitle: 'Monaspace Krypton Var', var(--font-family--title);
+	--font-family--title: 'Monaspace Krypton Var', monospace;
 	--font-family--code: 'Monaspace Krypton Var', monospace;
 
-	font-size: 18px;
-	line-height: 1.25;
+	--font-scale: 1.25;
+
+	font-size: 22px;
+	line-height: var(--font-scale);
 	font-family: var(--font-family--content);
 	color: var(--color--white);
+	scroll-behavior: smooth;
 }
 
 * {
@@ -26,4 +28,72 @@ body {
 	background-color: var(--color--primary);
 	margin: 0;
 	padding: 0;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6,
+p {
+	margin-block: 0;
+	font-weight: normal;
+}
+
+p {
+	margin-block-end: calc(1em / var(--font-scale));
+}
+
+h1,
+.h1 {
+	font-size: calc(1rem * pow(var(--font-scale), 6));
+	font-family: var(--font-family--title);
+}
+
+h2,
+.h2 {
+	font-size: calc(1rem * pow(var(--font-scale), 5));
+	font-family: var(--font-family--title);
+}
+
+h3,
+.h3 {
+	font-size: calc(1rem * pow(var(--font-scale), 4));
+	font-family: var(--font-family--content);
+}
+
+h4,
+.h4 {
+	font-size: calc(1rem * pow(var(--font-scale), 3));
+	font-family: var(--font-family--content);
+}
+
+h5,
+.h5 {
+	font-size: calc(1rem * pow(var(--font-scale), 2));
+	font-family: var(--font-family--content);
+}
+
+h6,
+.h6 {
+	font-size: calc(1rem * pow(var(--font-scale), 1));
+	font-family: var(--font-family--content);
+}
+
+small,
+.small {
+	font-size: calc(1rem * pow(var(--font-scale), -1));
+}
+
+input,
+select,
+textarea {
+	font-size: 1rem;
 }
