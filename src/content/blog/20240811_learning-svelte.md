@@ -2,7 +2,7 @@
 title: Learning Svelte
 slug: learning-svelte
 description: My experience learning Svelte and SvelteKit by building my personal site.
-date: 2024-08-11
+date: 08-11-2024
 tags: [Svelte, SvelteKit]
 published: true
 ---

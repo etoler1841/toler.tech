@@ -1,8 +1,12 @@
 import { error } from '@sveltejs/kit'
 
-export default async function loadMarkdown(slug: string) {
+// We have to use the `directory` param because of how rollup handles dynamic imports.
+// @see https://github.com/rollup/plugins/tree/master/packages/dynamic-import-vars#how-it-works
+export default async function loadMarkdown(slug: string, directory?: string) {
 	try {
-		const post = await import(`$content/${slug}.md`)
+		const post = await import(
+			directory ? `$content/${directory}/${slug}.md` : `$content/${slug}.md`
+		)
 
 		return {
 			content: post.default,
