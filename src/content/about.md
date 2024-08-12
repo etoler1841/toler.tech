@@ -2,6 +2,10 @@
 title: About
 ---
 
+<script lang="ts">
+  import Button from '$lib/Button.svelte'
+</script>
+
 Hi there! 👋
 
 I’m Erin! I’m a self-taught web developer from Pensacola, Florida, who specializes in JavaScript
