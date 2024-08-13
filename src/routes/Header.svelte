@@ -25,4 +25,16 @@
 		font-family: var(--font-family--title);
 		color: var(--color--accent);
 	}
+
+	@media (max-width: 768px) {
+		.page-header {
+			justify-content: center;
+			text-align: center;
+			padding: 1.5rem 0.75rem;
+		}
+
+		.subtitle {
+			font-size: 0.8rem;
+		}
+	}
 </style>

@@ -24,4 +24,10 @@
 		grid-area: main;
 		padding: 1.5rem 2.25rem;
 	}
+
+	@media (max-width: 768px) {
+		main {
+			padding-inline: 0.75rem;
+		}
+	}
 </style>
