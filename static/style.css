@@ -1,3 +1,20 @@
+@font-face {
+	font-family: Zain;
+	src: url('./fonts/Zain-Regular.ttf') format('truetype');
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: Zain;
+	src: url('./fonts/Zain-Bold.ttf') format('truetype');
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: Monaspace Krypton;
+	src: url('./fonts/MonaspaceKrypton-Regular.woff') format('woff');
+}
+
 :root {
 	--color--primary: #25042d;
 	--color--accent: #3af180;
@@ -8,8 +25,8 @@
 	--color--white: #ffffff;
 
 	--font-family--content: 'Zain', sans-serif;
-	--font-family--title: 'Monaspace Krypton Var', monospace;
-	--font-family--code: 'Monaspace Krypton Var', monospace;
+	--font-family--title: 'Monaspace Krypton', monospace;
+	--font-family--code: 'Monaspace Krypton', monospace;
 
 	--font-scale: 1.25;
 
