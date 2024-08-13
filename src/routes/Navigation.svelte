@@ -89,6 +89,12 @@ TODO: There are a lot of ways to improve here.
 		list-style: none;
 	}
 
+	@media (max-width: 960px) {
+		nav {
+			padding-inline: 0.75rem;
+		}
+	}
+
 	@media (max-width: 768px) {
 		.toggler {
 			position: fixed;

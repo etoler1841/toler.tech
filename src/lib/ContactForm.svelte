@@ -19,4 +19,10 @@
 		gap: 0.8em;
 		max-width: 500px;
 	}
+
+	@media (max-width: 768px) {
+		.contact-form {
+			margin-inline: auto;
+		}
+	}
 </style>
