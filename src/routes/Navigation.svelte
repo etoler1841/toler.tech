@@ -18,12 +18,10 @@ TODO: There are a lot of ways to improve here.
 		toggler = document.querySelector<HTMLButtonElement>('#toggler')
 		navbar = document.querySelector<HTMLElement>('#top-nav')
 
-		toggler?.addEventListener('click', toggle)
 		window.addEventListener('keydown', handleKeydown)
 		window.addEventListener('click', handleBackgroundClick)
 
 		return () => {
-			toggler?.removeEventListener('click', toggle)
 			window.removeEventListener('keydown', handleKeydown)
 			window.removeEventListener('click', handleBackgroundClick)
 
@@ -59,9 +57,9 @@ TODO: There are a lot of ways to improve here.
 	}
 </script>
 
-<div id="toggler" class="toggler" data-state={state}>
+<button id="toggler" class="toggler" on:click={toggle} data-state={state}>
 	<div class="toggler-icon"></div>
-</div>
+</button>
 
 <nav id="top-nav" data-state={state}>
 	<ul class="menu">
@@ -73,6 +71,10 @@ TODO: There are a lot of ways to improve here.
 </nav>
 
 <style>
+	.toggler {
+		display: none;
+	}
+
 	nav {
 		grid-area: nav;
 		padding: 1.5rem 2.25rem;
@@ -97,12 +99,16 @@ TODO: There are a lot of ways to improve here.
 
 	@media (max-width: 768px) {
 		.toggler {
+			display: block;
 			position: fixed;
 			top: 1rem;
 			left: 1rem;
 			z-index: 10;
 			cursor: pointer;
-			padding: 0.5rem;
+			padding: 1rem;
+			background-color: var(--color--primary);
+			opacity: 0.9;
+			border: none;
 		}
 
 		.toggler-icon {
@@ -110,6 +116,7 @@ TODO: There are a lot of ways to improve here.
 			top: 50%;
 			left: 50%;
 			translate: -50% -50%;
+			pointer-events: none;
 		}
 
 		.toggler-icon::before {
@@ -140,6 +147,10 @@ TODO: There are a lot of ways to improve here.
 				translate 0.3s ease-out,
 				rotate 0.3s ease-out,
 				opacity 0.3s ease-out;
+		}
+
+		.toggler[data-state='open'] {
+			background: transparent;
 		}
 
 		.toggler[data-state='open'] .toggler-icon {
