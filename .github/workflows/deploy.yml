@@ -1,0 +1,45 @@
+name: Deploy
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+jobs:
+  build:
+    name: New release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - name: Install dependencies
+        run: pnpm install
+      - name: Build
+        run: pnpm build
+      - name: Create artifact
+        run: zip -r toler.tech.zip build
+      - name: Create release
+        uses: ncipollo/release-action@v1
+        id: create_release
+        with:
+          allowUpdates: true
+          tag: ${{ github.REF_NAME }}
+          name: ${{ github.REF_NAME }}
+          artifacts: './toler.tech.zip'
+          artifactContentType: 'application/zip'
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: 'temporary_value'
+      - name: Update known_hosts
+        run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+      - name: Deploy to production
+        run: rsync -avz ./build/* ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.REMOTE_PATH }}
