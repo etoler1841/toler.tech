@@ -1,6 +1,5 @@
 ---
 title: 'Welcome to the Jungle: Building My Personal Site with Svelte'
-slug: welcome-to-the-jungle
 description: Challenging myself to build a new site in a new framework.
 date: 08-12-2024
 tags: [Svelte, SvelteKit]

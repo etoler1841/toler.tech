@@ -10,7 +10,7 @@ export default async function loadMarkdown(slug: string, directory?: string) {
 
 		return {
 			content: post.default,
-			meta: post.metadata,
+			meta: { ...post.metadata, slug },
 		}
 	} catch (e) {
 		if (e instanceof Error) {
