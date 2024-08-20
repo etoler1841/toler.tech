@@ -1,0 +1,23 @@
+name: Create Release
+on:
+  push:
+    tags:
+      - 'v*'
+jobs:
+  create-release:
+    name: Create release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Create artifact
+        run: zip -r toler.tech.zip build
+      - name: Create release
+        uses: ncipollo/release-action@v1
+        id: create_release
+        with:
+          allowUpdates: true
+          tag: ${{ github.REF_NAME }}
+          name: ${{ github.REF_NAME }}
+          artifacts: './toler.tech.zip'
+          artifactContentType: 'application/zip'
