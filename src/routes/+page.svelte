@@ -16,11 +16,13 @@
 	<meta property="og:url" content="https://toler.tech/" />
 </svelte:head>
 
-{#each ['about', 'uses', 'blog', 'contact'] as slug}
-	<Section>
-		{#await loadMarkdown(slug) then data}
-			<h2 id={slug}>{data?.meta?.title}</h2>
-			<svelte:component this={data?.content} />
-		{/await}
-	</Section>
-{/each}
+<div class="content">
+	{#each ['about', 'uses', 'blog', 'contact'] as slug}
+		<Section>
+			{#await loadMarkdown(slug) then data}
+				<h2 id={slug}>{data?.meta?.title}</h2>
+				<svelte:component this={data?.content} />
+			{/await}
+		</Section>
+	{/each}
+</div>

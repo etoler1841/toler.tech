@@ -18,6 +18,7 @@
 		flex-flow: column nowrap;
 		gap: 0.8em;
 		max-width: 500px;
+		margin: 0 auto;
 	}
 
 	@media (max-width: 768px) {

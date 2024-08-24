@@ -28,7 +28,7 @@
 	--font-family--title: 'Monaspace Krypton', monospace;
 	--font-family--code: 'Monaspace Krypton', monospace;
 
-	--font-scale: 1.25;
+	--font-scale: calc(9 / 8);
 
 	font-size: 22px;
 	line-height: var(--font-scale);
@@ -137,4 +137,24 @@ textarea {
 	&:focus-visible {
 		outline: 2px solid var(--color--accent);
 	}
+}
+
+*:not(pre) > code,
+pre:has(code) {
+	font-family: var(--font-family--code);
+	line-height: 1.3;
+	font-size: calc(1rem * pow(var(--font-scale), -2));
+	border-radius: 7px;
+	box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+}
+
+*:not(pre) > code {
+	padding: 0.25rem;
+}
+
+pre:has(code) {
+	padding: 1rem;
+	margin: 1.3rem auto;
+	width: 90ch;
+	overflow: auto;
 }

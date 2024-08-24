@@ -1,10 +1,39 @@
-import { mdsvex } from 'mdsvex'
+import { escapeSvelte, mdsvex } from 'mdsvex'
 import adapter from '@sveltejs/adapter-node'
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
+import { getSingletonHighlighter } from 'shiki'
+import remarkGfm from 'remark-gfm'
+
+/** @type {import('shiki').BundledLanguage[]} */
+const langs = [
+	'bash',
+	'css',
+	'docker',
+	'dockerfile',
+	'html',
+	'javascript',
+	'php',
+	'sql',
+	'svelte',
+	'tsx',
+	'typescript',
+]
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
 	extensions: ['.md'],
+	highlight: {
+		highlighter: async (code, lang = 'text') => {
+			const highlighter = await getSingletonHighlighter({
+				themes: ['rose-pine'],
+				langs,
+			})
+			await highlighter.loadLanguage(...langs)
+			const html = escapeSvelte(await highlighter.codeToHtml(code, { lang, theme: 'rose-pine' }))
+			return `{@html \`${html}\` }`
+		},
+	},
+	remarkPlugins: [remarkGfm],
 }
 
 /** @type {import('@sveltejs/kit').Config} */

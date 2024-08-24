@@ -23,6 +23,7 @@
 	main {
 		grid-area: main;
 		padding: 1.5rem 2.25rem;
+		max-width: 1080px;
 	}
 
 	@media (max-width: 768px) {
