@@ -149,7 +149,12 @@ pre:has(code) {
 }
 
 *:not(pre) > code {
+	font-size: 0.6em;
 	padding: 0.25rem;
+	/* I'd really love to just apply highlighting to the inline code block, but
+	I haven't figured out how to do that yet. So we're just applying the
+	background color from the chosen theme for now. */
+	background-color: #191724;
 }
 
 pre:has(code) {
