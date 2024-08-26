@@ -26,3 +26,9 @@
 		</Section>
 	{/each}
 </div>
+
+<style>
+	.content {
+		--font-scale: 5/4;
+	}
+</style>

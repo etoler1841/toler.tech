@@ -1,6 +1,12 @@
+<script lang="ts">
+	import { page } from '$app/stores'
+
+	$: level = $page.url.pathname === '/' ? 'h1' : 'h2'
+</script>
+
 <header class="page-header">
 	<div class="container">
-		<h1 class="title">Erin Toler</h1>
+		<svelte:element this={level} class="title"><a href="/">Erin Toler</a></svelte:element>
 		<p class="subtitle">musician • teacher • techie</p>
 	</div>
 </header>
@@ -21,9 +27,23 @@
 		align-items: center;
 	}
 
+	.title {
+		font-size: 3rem;
+	}
+
+	.title a {
+		color: var(--color--white);
+
+		&:hover,
+		&:focus-visible {
+			text-decoration: none;
+		}
+	}
+
 	.subtitle {
 		font-family: var(--font-family--title);
 		color: var(--color--accent);
+		font-size: 1rem;
 	}
 
 	@media (max-width: 768px) {
