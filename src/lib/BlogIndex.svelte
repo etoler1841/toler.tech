@@ -1,6 +1,8 @@
 <script lang="ts">
 	import formatDate from '$util/formatDate'
 
+	export let tag: string | undefined
+
 	async function loadPosts() {
 		const paths = import.meta.glob('$content/blog/*.md', { eager: true })
 
@@ -19,6 +21,9 @@
 
 				return acc
 			}, [] as App.Post[])
+			.filter((post) =>
+				tag ? post.tags.map((tag) => tag.toLowerCase()).includes(tag.toLowerCase()) : post
+			)
 			.sort((a, b) => {
 				return new Date(b.date).valueOf() - new Date(a.date).valueOf()
 			})
