@@ -1,6 +1,7 @@
 <script lang="ts">
 	import ContactForm from '$lib/ContactForm.svelte'
 	import Section from '$lib/Section.svelte'
+	import Tag from '$lib/Tag.svelte'
 	import formatDate from '$util/formatDate.js'
 	import { formatPageTitle } from '$util/formatPageTitle.js'
 
@@ -23,7 +24,11 @@
 
 		<svelte:component this={data.content} />
 
-		<p class="meta small">Tags: {data.meta.tags.join(', ')}</p>
+		<div class="tag-list">
+			{#each data.meta.tags as tag}
+				<Tag {tag} />
+			{/each}
+		</div>
 	</article>
 	<Section>
 		<ContactForm />
@@ -34,5 +39,11 @@
 	.meta {
 		font-style: italic;
 		color: var(--color--accent);
+	}
+
+	.tag-list {
+		display: flex;
+		flex-flow: row wrap;
+		gap: 0.3rem;
 	}
 </style>
